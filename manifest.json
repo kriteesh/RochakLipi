@@ -1,0 +1,17 @@
+{
+  "name": "मस्त लेख प्रोडक्शंस",
+  "short_name": "मस्त लेख",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/pant.html",
+	"icons": [
+    {
+      "src": "assets/fonts.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

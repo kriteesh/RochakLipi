@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>सुन्दर लिपि</title>
+		<meta http-equiv="Content-Language" content="hi">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="manifest" href="manifest.json">
+		<meta name="viewport" content="width=device-width">
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="assets/akshara.png">
+		<link href="https://fonts.googleapis.com/css?family=Rajdhani|Khand|Mukta|Rhodium+Libre|Arya|Rozha+One" rel="stylesheet">
+		<link href ="css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/transliterate.js"></script>
+	</head>
+	<body><div class="container">
+			<div class = "topka">मस्त लेख प्रोडक्शंस</div>
+			<div class = "content" contenteditable ="true" id="kshetra" placeHolder="यहाँ लिखें ..."></div>
+			<div class ="fontChange button" onclick="shuffle()">फॉण्ट बदलें</div>
+			<div class ="colorChange button">कलर बदलें</div>
+			<div class="sizeChange button"><span>आकार&nbsp;&nbsp;</span><input type="range" min="50" max="200" value="50" class="slider" id="myRange" oninput="showVal(this.value)"></div>
+			<div class ="effectChange button" onclick="effects()">अंदाज़ बदलें</div>
+			<canvas class="main"></canvas>
+			<img src="" id="mirror" class="main" onerror="this.style.display='none'"/>
+			<div class="looter button">गिफ बनाएं</div>
+			<a href="#" class="footer button" id="png-download" download="what.png">स्नैपशॉट बनाएं</a>
+		</div>
+	</body>
+	<script src="js/pant.js"></script>
+	<script type="text/javascript" src="js/effects.js"></script>
+		<script>
+  	if ('serviceWorker' in navigator) {
+    	console.log("Will the service worker register?");
+    	navigator.serviceWorker.register('service-worker.js')
+      .	then(function(reg){
+			console.log("Yes, it did.");
+      	}).catch(function(err) {
+        	console.log("No it didn't. This happened: ", err)
+      	});
+  	}
+	</script>
+</html>

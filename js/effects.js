@@ -16,7 +16,7 @@ function threeColors(){
 	 ctx.putImageData(pump, 0, 0);
 }
 
-function twoColors(){
+function twoColors(rump){
 
 	let pump = ctx.getImageData(0,0,w,h);
 	let data = pump.data;
@@ -29,11 +29,18 @@ function twoColors(){
 		 // red
 		 data[i] = A[1];
 		  // green
-		 data[i + 1] = A[0];
+		 data[i + 1] = A[1];
 		  // blue
-		 data[i + 2] = A[0];
+		 data[i + 2] = A[1];
 			}
 	}
 
 	 ctx.putImageData(pump, 0, 0);
+}
+let temp = 0;
+let animate = () => {
+	temp+=0.01;
+	ctx.clearRect(0,0,w,h);
+	requestAnimationFrame(animate);
+	draw(string)(font_size)(font_family);
 }

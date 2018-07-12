@@ -10,18 +10,19 @@ let font_family = "Khand";
 
 let string = "यहाँ दिखेगा ...";
 let font_size = "50";
+let color = "black";
 
-let draw = (s) => (f_s) => (f_f) => {
+let draw = (s) => (f_s) => (f_f) => c => {
 //	ctx.fillStyle = "";
 	ctx.clearRect(0,0,w,h);
-	ctx.fillStyle ="black";
+	ctx.fillStyle = c;
 	ctx.font = f_s +  "px " + f_f;
 	wrapText(ctx, s, 10, parseInt(f_s)+10, maxWidth, parseInt(f_s));
 	
 //	ctx.fillText(s, parseInt(f_s) + 20, parseInt(f_s) + 20);
 }
 
-draw(string)(font_size)(font_family);
+draw(string)(font_size)(font_family)(color);
 
 document.getElementById('kshetra').addEventListener('keyup', function() {
     string = document.getElementById('kshetra').innerText;
@@ -31,7 +32,7 @@ document.getElementById('kshetra').addEventListener('keyup', function() {
 
 let showVal = (value) =>{
 	font_size = value.toString();
-	draw(string)(font_size)(font_family);
+	draw(string)(font_size)(font_family)(color);
 }
 let ding = 0;
 let shuffle = (ding) =>
@@ -43,9 +44,13 @@ let shuffle = (ding) =>
 	
 	font_family = font_arr[ding];
 	
-	draw(string)(font_size)(font_family);
+	draw(string)(font_size)(font_family)(color);
 }
 
+document.getElementById("rang").addEventListener("input", function() {
+	color = document.getElementById("rang").value;
+    draw(string)(font_size)(font_family)(color);
+}, false); 
 
 function wrapText(context, text, x, y, maxWidth, lineHeight) {
 	var words = text.split(' ');
@@ -134,11 +139,16 @@ if(window.innerWidth<1000)
 		
 		$(".slider").css("bottom","-2vh");
 		$(".slider").css("width","80%");
-		
-		
+			
+
 	}
 
-
+document.getElementById("bgRang").addEventListener("input", function() {
+	let bgcolor = document.getElementById("bgRang").value;
+	console.log(bgcolor);
+	$('body').css("background",bgcolor);
+    
+}, false);
 
 
 

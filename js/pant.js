@@ -27,13 +27,11 @@ document.getElementById('kshetra').addEventListener('keyup', function() {
     string = document.getElementById('kshetra').innerText;
 //	ctx.clearRect(0,0,w,h);
 	draw(string)(font_size)(font_family);
-	document.getElementsByClassName('effectChange')[0].innerHTML ="अंदाज़ फिर से";
     });
 
 let showVal = (value) =>{
 	font_size = value.toString();
 	draw(string)(font_size)(font_family);
-	document.getElementsByClassName('effectChange')[0].innerHTML ="अंदाज़ फिर से";
 }
 let ding = 0;
 let shuffle = (ding) =>
@@ -46,8 +44,6 @@ let shuffle = (ding) =>
 	font_family = font_arr[ding];
 	
 	draw(string)(font_size)(font_family);
-	document.getElementsByClassName('fontChange')[0].innerHTML ="और फॉण्ट";
-	document.getElementsByClassName('effectChange')[0].innerHTML ="अंदाज़ फिर से";
 }
 
 
@@ -124,9 +120,23 @@ let redraw = () => {
 window.addEventListener('resize',redraw,false);
 
 let effects =()=>{
-	document.getElementsByClassName('effectChange')[0].innerHTML ="और अंदाज़";
 	twoColors();
 }
+
+if(window.innerWidth<1000)
+	{
+		let khair = ["font","effect","color"];
+		khair.map(x=>{let p = document.getElementsByClassName(x + "Change")[0].innerText;
+		p = p.split(" ");
+		document.getElementsByClassName(x + "Change")[0].innerText = p[0];})
+		
+		document.getElementsByClassName("sizeChange")[0].innerHTML = "</span><input type='range' min='50' max='200' value='50' class='slider' id='myRange' oninput='showVal(this.value)'>";
+		
+		$(".slider").css("bottom","-2vh");
+		$(".slider").css("width","80%");
+		
+		
+	}
 
 
 

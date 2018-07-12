@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "/pant.html",
+  "start_url": "pant.html",
 	"icons": [
     {
       "src": "assets/fonts.png",

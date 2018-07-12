@@ -118,7 +118,7 @@ png.addEventListener('click', function (e) {
 let redraw = () => {
 	w = canvas.width = document.getElementsByClassName('main')[0].clientWidth;
 	h = canvas.height = document.getElementsByClassName('main')[0].clientHeight;
-	draw(string)(font_size)(font_family);
+	draw(string)(font_size)(font_family)(color);
 }
 
 

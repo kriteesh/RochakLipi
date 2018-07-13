@@ -140,7 +140,7 @@ if(window.innerWidth<1000)
 		$(".slider").css("bottom","-2vh");
 		$(".slider").css("width","80%");
 			
-
+		document.getElementsByClassName('footer')[0].innerText ="स्नैपशॉट";
 	}
 
 document.getElementById("bgRang").addEventListener("input", function() {
@@ -150,6 +150,8 @@ document.getElementById("bgRang").addEventListener("input", function() {
     
 }, false);
 
-
+//let capture = () =>{
+//	if(effect)
+//}
 
 

@@ -135,7 +135,7 @@ if(window.innerWidth<1000)
 		p = p.split(" ");
 		document.getElementsByClassName(x + "Change")[0].innerText = p[0];})
 		
-		document.getElementsByClassName("sizeChange")[0].innerHTML = "</span><input type='range' min='50' max='200' value='50' class='slider' id='myRange' oninput='showVal(this.value)'>";
+		document.getElementsByClassName("sizeChange")[0].innerHTML = "</span><input type='range' min='50' max='200' value='70' class='slider' id='myRange' oninput='showVal(this.value)'>";
 		
 		$(".slider").css("bottom","-2vh");
 		$(".slider").css("width","80%");
@@ -154,4 +154,6 @@ document.getElementById("bgRang").addEventListener("input", function() {
 //	if(effect)
 //}
 
-
+$('.button').addClass('animated bounceInLeft');
+$('.topka').addClass('animated bounceInDown');
+$('.content').addClass('animated shake');

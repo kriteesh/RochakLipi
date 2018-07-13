@@ -9,6 +9,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Rajdhani|Khand|Mukta|Rhodium+Libre|Arya|Rozha+One" rel="stylesheet">
 		<link href ="css/style.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<script type="text/javascript" src="js/transliterate.js"></script>
 	</head>
 	<body><div class="container">
@@ -16,12 +17,12 @@
 			<div class = "content" contenteditable ="true" id="kshetra" placeHolder="यहाँ लिखें ..."></div>
 			<div class ="fontChange button" onclick="shuffle()">फॉण्ट बदलें</div>
 			<input type="color" name="favcolor" value=#180613 class ="colorChange button" id="rang">
-			<div class="sizeChange button"><span>आकार&nbsp;&nbsp;</span><input type="range" min="50" max="200" value="50" class="slider" id="myRange" oninput="showVal(this.value)"></div>
+			<div class="sizeChange button"><span>आकार&nbsp;&nbsp;</span><input type="range" min="50" max="200" value="60" class="slider" id="myRange" oninput="showVal(this.value)"></div>
 			<div class ="effectChange button" onclick="effects()">अंदाज़ बदलें</div>
 			<canvas class="main"></canvas>
 			<img src="" id="mirror" class="main" onerror="this.style.display='none'"/>
 			<div class="looter button" onclick="capture()">गिफ शुरू</div>
-			<input type="color" name="favcolor" value=#8ea452 class ="bgChange button" id="bgRang">
+			<input type="color" name="favcolor" value=#a45292 class ="bgChange button" id="bgRang">
 			<a href="#" class="footer button" id="png-download" download="what.png">पारदर्शी स्नैपशॉट</a>
 		</div>
 	</body>

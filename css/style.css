@@ -21,8 +21,8 @@
 	bottom : 1vh;
     -webkit-appearance: none;
     width: 40%;
-    height: 1vh;
-    border-radius: 5px;
+    height: 0.5vh;
+    
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -37,16 +37,16 @@
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 3vh;
-    height: 3vh;
+    width: 2vh;
+    height: 2vh;
     border-radius: 50%;
     background: black;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 3vh;
-    height: 3vh;
+    width: 2vh;
+    height: 2vh;
     border-radius: 50%;
     background: black;
     cursor: pointer;

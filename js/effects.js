@@ -87,7 +87,11 @@ var getCoords = function(){
 	}
 
 		
-	
+	let shadow = (color) =>
+	{
+		ctx.shadowColor = "grey";
+		ctx.shadowOffsetX = 2;
+	}
 
 
 

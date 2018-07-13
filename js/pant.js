@@ -27,7 +27,7 @@ draw(string)(font_size)(font_family)(color);
 document.getElementById('kshetra').addEventListener('keyup', function() {
     string = document.getElementById('kshetra').innerText;
 //	ctx.clearRect(0,0,w,h);
-	draw(string)(font_size)(font_family);
+	draw(string)(font_size)(font_family)(color);
     });
 
 let showVal = (value) =>{
@@ -124,8 +124,12 @@ let redraw = () => {
 
 window.addEventListener('resize',redraw,false);
 
+let fit = false;
+
 let effects =()=>{
-	twoColors();
+	shadow();
+	
+	if(fit==true) { document.getElementsByClassName('looter')[0].innerText = "गिफ शुरू"; }
 }
 
 if(window.innerWidth<1000)

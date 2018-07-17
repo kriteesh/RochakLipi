@@ -90,17 +90,6 @@ function onLoad() {
 }
 google.setOnLoadCallback(onLoad);
 
-function create(){
-	html2canvas((main),{backgroundColor:"null"}).then(function(canvas) {
-		var link = document.createElement("a");
-		document.body.appendChild(link);
-		link.download = "html_image.png";
-		link.href = canvas.toDataURL("image/png");
-		link.target = '_blank';
-		link.click();
-	});   
-
-}
 
 let mirror = document.getElementById('mirror');
 

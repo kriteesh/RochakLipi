@@ -13,7 +13,7 @@ let dragok = false;
 let startX;
 let startY;
 
-let stuff = {x:100,y:100, string: "I want to say that whatever you do, do with all your heart and mind and soul",family:"Khand",size:100,color:"#444444",isDragging:false};
+let stuff = {x:100,y:100, string: "यहाँ दिखेगा...",family:"Khand",size:100,color:"#444444",isDragging:false};
 
 
 // listen for mouse events
@@ -164,11 +164,6 @@ let redraw = () => {
 
 window.addEventListener('resize',redraw,false);
 
-let fit =false;
-let effects =()=>{
-	shadow();
-	if(fit==true) { document.getElementsByClassName('looter')[0].innerText = "गिफ शुरू"; }
-}
 
 if(window.innerWidth<1000)
 	{
@@ -193,12 +188,11 @@ document.getElementById("bgRang").addEventListener("input", function() {
 }, false);
 
 let fontChange = document.getElementsByClassName('fontChange')[0];
-let fontMenu = document.createElement('div');
-fontMenu.className = 'dropdown-content';
-
+let fontMenu = document.createElement('button');
+fontMenu.className = "fontMenu";
 let font_arr = ["Khand","Rajdhani","Mukta","Rhodium Libre","Arya","Rozha One"];
 
-font_arr.map(x=>{let p = document.createElement('a'); p.innerHTML = x; p.onclick = function(){stuff.family = x; draw();}; fontMenu.append(p);} );
+font_arr.map(x=>{let p = document.createElement('a'); p.value = x; p.innerHTML = x ; p.addEventListener("click",function(){stuff.family = x; draw(); console.log(x,p.value);}); fontMenu.append(p);} );
 
 fontChange.append(fontMenu);
 

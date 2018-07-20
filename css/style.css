@@ -95,15 +95,15 @@ html,body{
 }
 .topka{
 	grid-area: topka;
-	width: 60%;
+	width: 40%;
 	height: 80%;
 	color: black;
 	text-align: center;
 	line-height: 7vh;
-	font-size: 4vh;
-	font-weight: bold;
-	/* letter-spacing: 0px; */
-	font-family: 'Rhodium Libre', sans-serif;
+	font-size: 5vh;
+	 letter-spacing: 1px; 
+	font-family: 'Khand', sans-serif;
+	background: #eaeaea;
 	
 }
 
@@ -128,6 +128,7 @@ html,body{
 	grid-area: main;
 	width:90%;
 	height:95%;
+	border : 1px dotted #ccc;
 }
 
 .button{
@@ -144,9 +145,11 @@ html,body{
 	color : black;
 	border : 1px dashed black;
 	outline : none;
+	resize :both;
 }
 .button:active{
-	transform: scale(0.9);
+	background : grey;
+	opacity : 0.7;
 }
 .button:hover{
 	background : grey;
@@ -180,25 +183,30 @@ html,body{
     display: inline-block;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    width : 15vw ;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 10px 10px;
-    text-decoration: none;
-    display: block;
+.fontMenu{
+	background : #ccc;
+	width : 100%;
+	height : auto;
+	display: none;
 	font-size : 3vh;
+	color : black;
+	outline : none;
+	opacity : 0.7;
+	font-family: 'Khand', sans-serif;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.fontMenu > a{
+	display: block;
+	width : 100%;
+	color : black;
+	
+}
 
-.fontChange:hover .dropdown-content {display: block;}
+.fontMenu > a:hover{
+	background : #eaeaea;
+}
 
-.fontChange:hover .dropbtn {background-color: #3e8e41;}
+.fontChange:hover .fontMenu{
+	display : block;
+}
+

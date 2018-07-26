@@ -95,12 +95,12 @@ html,body{
 }
 .topka{
 	grid-area: topka;
-	width: 40%;
+	width: 60%;
 	height: 80%;
 	color: black;
 	text-align: center;
 	line-height: 7vh;
-	font-size: 5vh;
+	font-size: 4vh;
 	 letter-spacing: 1px; 
 	font-family: 'Khand', sans-serif;
 	background: #eaeaea;

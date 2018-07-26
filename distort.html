@@ -8,155 +8,51 @@
 				height : 100%;
 			
 			}
+			
 		</style>
-		
 	</head>
 	<body>
+		<canvas></canvas>
 	</body>
 	<script>
-		const canvas = document.createElement("canvas");
+		const canvas = document.querySelector("canvas");
 		const w = canvas.width = window.innerWidth;
 		const h = canvas.height = window.innerHeight;
-		document.body.appendChild(canvas);
 		const ctx = canvas.getContext("2d");	
 	
 		const x_o = w/2;
 		const y_o = h/2; 
 		let temp = 0; 
-		let pump,data;
-		
+		let data = [];
 		let draw = () => {
-			ctx.fillStyle = "white";
+			ctx.fillStyle = "red";
 			ctx.font = "200px Arial";
 			ctx.fillText("फाइटर",x_o,y_o);
 		}
 		
-		let drawXor = (a) => {
-			ctx.fillStyle = "black";
-			ctx.font = "200px Arial";
-			ctx.fillText("फाइटर",x_o,y_o);
-			ctx.globalCompositeOperation = "source-in" ;
-			ctx.fillStyle = "blue";
-			ctx.font = "200px Arial";
-			ctx.fillText("फाइटर",x_o + a/10,y_o);
+		draw();
+		
+	let pixels = (context) => {
+		let pump = context.getImageData(0,0,w,h).data;
+		let data = [];
+		for(let i=0; i<pump.length;i+=4)
+		{
+			data[i/4] = {x : Math.floor(i/4)%w, y : Math.floor(Math.floor(i/4)/w), r : pump[i], g : pump[i+1], b : pump[i+2], a : pump[i+3]};
+						
 		}
+		data = data.filter(x=>x.a!=0);
+		return data;					
+	}
+	
+	let points = pixels(ctx);
 		
-		let granular = () => {
-			
-			pump = ctx.getImageData(0,0,w,h);
-			data = pump.data;
-			
-			let grains = points(data);
-			
-			grains = grains.map((x,index)=>x.concat((index/4)%w,Math.floor((index/4)/w))).filter(x=>x[4]!=0);
-			console.log(grains);			
-		}
-		
-		let pixelate = iter=> pixels => data => {
-				if(data.length<4) return pixels;
-				else{
-				pixels[iter] = data.slice(0,4);
-				return pixelate(iter+1)(pixels)(data.slice(4,data.length));
-				}
-		}
-		
-		let points = pixelate(0)([]);
-		
-		
-		
-		function horizontalCross(){
-			
-//			if(t>w) t==w; 
-			
-			pump = ctx.getImageData(0,0,w,h);
-			data = pump.data;
-			
-			
-			for(var i = 0; i < data.length; i += 4) {
-				
-				if((Math.floor((i/4)/w)%4<=1))
-					{
-				 // red
-				 data[i] = 0;
-				  // green
-				 data[i + 1] = 0;
-				  // blue
-				 data[i + 2] = 0;
-					}
-			}
-			
-       		 ctx.putImageData(pump, 0, 0);
-      	
-		}
-		
-		function verticalCross(t){
-			
-			if(t>h) t==h; 
-				
-			pump = ctx.getImageData(0,0,w,t);
-			data = pump.data;
-			
-			
-			for(var i = 0; i < data.length; i += 4) {
-				
-				if(((i/4)%w)%8<=2)
-					{
-				 // red
-				 data[i] = 0;
-				  // green
-				 data[i + 1] = 0;
-				  // blue
-				 data[i + 2] = 0;
-					}
-			}
-			
-       		 ctx.putImageData(pump, 0, 0);
-      	
-		}
-		
-		
-		
+	let chooseRandom = n => N => {
+			if(n==0) return 0 ; else return Math.floor(Math.random()*N) + ',' + chooseRandom(n-1)(N);
+	}
+	
+	let chosen = chooseRandom.split()
 
-		function invoid(a){
-			
-			ctx.fillStyle = "white";
-			ctx.font = a + "px Arial";
-			ctx.fillText("फाइटर",x_o + 2.5,y_o);
-			
-		}
-		
-		function samachar(){
-			
-			pump = ctx.getImageData(0,0,w,h);
-			data = pump.data;
-			A = [0,255]
-			
-			for(var i = 0; i < data.length; i += 4) {
-				 // red
-				 data[i] = A[Math.floor(Math.random()*2)];
-				  // green
-				 data[i + 1] = A[Math.floor(Math.random()*2)];
-				  // blue
-				 data[i + 2] = A[Math.floor(Math.random()*2)];
-			}
-			
-       		 ctx.putImageData(pump, 0, 0);
-		}
-		
-		
-		const animate = () => {
-			temp+=0.1;
-			ctx.clearRect(0,0,w,h);
-			requestAnimationFrame(animate);
-//			draw();
-			drawXor(temp);
-//			horizontalCross();
-//			samachar();
-//			invoid(195);
-			
-		}
-		
-		animate();
-		
+	
+	
 	</script>
 </html>
